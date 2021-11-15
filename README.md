@@ -1,3 +1,3 @@
 # naivebias
 
-Implemented with Astro.js 🚀
+Implemented with Astro 🚀

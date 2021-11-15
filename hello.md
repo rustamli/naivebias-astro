@@ -1,3 +1,0 @@
-# naivebias astro
-
-Welcome!
