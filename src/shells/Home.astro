@@ -1,0 +1,17 @@
+---
+import Footer from '../components/Footer.astro'
+---
+<div class="container mx-auto py-6">
+    <header class="text-center py-4">
+      <a style="display: block;" href="/">
+        <img class="large-header-logo dark:hidden mx-auto" src="/img/logo.svg" alt="Naive Bias logo">
+        <img class="large-header-logo hidden dark:block mx-auto" src="/img/dark-logo.svg" alt="Naive Bias logo">
+      </a>
+    </header>
+
+    <main class="text-center">
+      <slot />
+    </main>
+
+    <Footer />
+</div>

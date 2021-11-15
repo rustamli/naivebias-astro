@@ -1,0 +1,21 @@
+---
+const {post} = Astro.props;
+---
+<div class="flex items-center justify-center">
+    <div class="text-black dark:text-gray-200 p-4 antialiased flex w-full max-w-lg">
+        <img class="rounded-full h-8 w-8 mr-2 mt-1 dark:hidden" src="/img/roundel.svg" alt="Naive Bias logo"/>
+        <img class="rounded-full h-8 w-8 mr-2 mt-1 hidden dark:block" src="/img/dark-roundel.svg" alt="Naive Bias logo"/>
+        <div>
+            <a href={ '/posts/' + post.id } class="block bg-gray-50
+                hover:bg-gray-200 dark:bg-blue-900 dark:hover:bg-blue-800 rounded-3xl px-4 pt-2 pb-2.5">
+                <div class="font-semibold text-normal leading-relaxed">
+                    <div class="underline text-gray-600 dark:text-gray-200">{post.title}</div>
+                </div>
+                <div class="text-sm leading-snug md:leading-normal">{post.description}</div>
+            </a>
+            <div class="text-sm ml-4 mt-0.5 text-gray-500 dark:text-gray-400">
+                Posted on {post.postedOn}
+            </div>
+        </div>
+    </div>
+</div>

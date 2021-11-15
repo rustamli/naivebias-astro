@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+const {title, meta, canonical} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta content="index,follow" name="robots">
+  <meta content="index,follow" name="googlebot">
+  
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/pwa-192x192.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00aba9">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+  
+  <meta content="{ meta.description }" name="description">
+	<meta content="{ meta.keywords }" name="keywords">
+	<meta content="{ meta['twitter:card'] }" name="twitter:card">
+	<meta content="{ meta['twitter:description'] }" name="twitter:description">
+	<meta content="{ meta['twitter:title'] }" name="twitter:title">
+	<meta content="{ meta['twitter:image'] }" name="twitter:image">
+	<meta content="{ meta['twitter:site'] }" name="twitter:site">
+	<meta content="{ meta['og:url'] }" property="og:url">
+	<meta content="{ meta['og:type'] }" property="og:type">
+	<meta content="{ meta['og:title'] }" property="og:title">
+	<meta content="{ meta['og:description'] }" property="og:description">
+	<meta content="{ meta['og:image'] }" property="og:image">
+	<meta content="{ meta['og:image:alt'] }" property="og:image:alt">
+	<meta content="{ meta['og:locale'] }" property="og:locale">
+	<meta content="{ meta['og:site_name'] }" property="og:site_name">
+	<link href="{ canonical }" rel="canonical">
+
+  <script async src="https://cdn.splitbee.io/sb.js"></script>
+  <script>
+    const sendTelemetry = function (signalType) {
+        fetch('https://apptelemetry.io/api/v1/apps/F774EAA3-06EB-42F8-8BC5-39A7D05C0AB2/signals/', {
+            method: 'POST',
+            headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                    "clientUser": navigator.userAgent,
+                    "type": signalType,
+                    "payload": {
+                            "url": window.location.href,
+                            "useragent": navigator.userAgent,
+                            "language": navigator.language,
+                            "platform": navigator.platform,
+                            "vendor": navigator.vendor,
+                    }
+            })
+        });
+    }
+    
+    sendTelemetry("pageLoad")
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/turbolinks@5.2.0/dist/turbolinks.js"></script>
+  <script>
+      Turbolinks.setProgressBarDelay(2)
+      Turbolinks.start()
+  </script>
+  
+</head>
+<body>
+  <slot />
+  <script>
+    (function() {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('color-schema') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    })()
+  </script>
+  <script>
+      function scrollToTop() {
+          window.scrollTo(0, 0);
+      }
+
+      function toggleScrollToTopButton () {
+          var btn = document.getElementById('scroll-top-button');
+          btn.style.display = this.scrollY > 500 ? 'block' : 'none';
+      }
+      window.addEventListener("scroll", toggleScrollToTopButton , false);
+
+      function toggleDarkMode() {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const setting = localStorage.getItem('color-schema') || 'auto';
+        const current = setting === 'dark' || (prefersDark && setting !== 'light') ? 'dark' : 'light';
+      
+        if (current === 'dark') {
+          localStorage.setItem('color-schema', 'light')
+          document.documentElement.classList.toggle('dark', false)
+        } else {
+          localStorage.setItem('color-schema', 'dark')
+          document.documentElement.classList.toggle('dark', true)
+        }
+      }
+  </script>
+</body>
+</html>

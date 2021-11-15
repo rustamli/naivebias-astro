@@ -1,0 +1,65 @@
+---
+import Page from '../../layouts/Page.astro'
+import Post from '../../shells/Post.astro'
+import LatestPublications from '../../components/LatestPublications.astro'
+import PanelQuestions from '../../components/PanelQuestions.astro'
+import PanelSubscribe from '../../components/PanelSubscribe.astro'
+
+import allPosts from '../../_data/all'
+
+const {slug} = Astro.request.params;
+
+const post = allPosts.posts.find((item) => {
+    return item.id === slug;
+});
+
+export async function getStaticPaths() {
+  return allPosts.posts.map((item) => {
+      return { params: { slug: item.id } };
+  });
+}
+
+import metaFormat from '../../_utils/meta-format'
+const meta = metaFormat.format([
+    { name: 'description', content: post.description},
+    { name: 'twitter:card', content: 'summary_large_image'},
+    { name: 'twitter:description', content: post.description},
+    { name: 'twitter:title', content: post.title},
+    { name: 'twitter:image', content: 'https://naivebias.com' + (post.sharingImage || '/img/twitter/tw-default.png') },
+    { name: 'twitter:site', content: '@nehfy'},
+    
+    { property: 'og:url', content: 'https://naivebias.com/posts/' + post.id },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: post.title },
+    { property: 'og:description', content: post.description },
+    { property: 'og:image', content: 'https://naivebias.com' + (post.sharingImage || '/img/twitter/tw-default.png') },
+    { property: 'og:image:alt', content: 'Naive Bias' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:site_name', content: 'Naive Bias' }
+])
+
+---
+<Page title="{post.title}" meta={meta} canonical="{ 'https://naivebias.com/posts/' + post.id }">
+    <Post>
+        <main class="article-container">
+            <article>
+                <h1 class="article-title mx-auto pb-2 text-3xl font-bold text-center text-black dark:text-white">
+                    {post.title}
+                    <div class="text-sm text-gray-400 dark:text-gray-200">
+                    Posted on {post.postedOn}
+                    </div>
+                </h1>
+
+                <div class="article-content prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                    {post.content}
+
+                    <div class="separator" aria-hidden="true"></div>
+                    <PanelQuestions />
+                    <PanelSubscribe />
+                </div>
+            </article>
+
+            <LatestPublications />
+        </main>
+    </Post>
+</Page>

@@ -1,0 +1,48 @@
+---
+// src/pages/index.astro
+import Page from '../layouts/Page.astro'
+import Home from '../shells/Home.astro'
+import LatestPublications from '../components/LatestPublications.astro'
+
+import metaFormat from '../_utils/meta-format'
+const meta = metaFormat.format([
+    { name: 'description', content: 'Hi there! I’m Turan. I am the CTO of OneDome, a London based property technology startup. Naive Bias is where I write about a range of topics covering engineering leadership, dealing with ambiguity, making trade-offs and more' },
+    { name: 'keywords', content: 'engineering leadership,engineering management,ambiguity,bias,technical leadership,CTO,London,product management,systems design,platforms,marketplaces,startups,remote work'},
+    { name: 'twitter:card', content: 'summary_large_image'},
+    { name: 'twitter:description', content: 'Hi there! I’m Turan. I am the CTO of OneDome, a London based property technology startup. Naive Bias is where I write about a range of topics covering engineering leadership, dealing with ambiguity, making trade-offs and more'},
+    { name: 'twitter:title', content: 'Naive Bias'},
+    { name: 'twitter:image', content: 'https://naivebias.com/img/twitter/tw-default.png'},
+    { name: 'twitter:site', content: '@nehfy'},
+
+    { property: 'og:url', content: 'https://naivebias.com' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: 'Naive Bias' },
+    { property: 'og:description', content: 'Hi there! I’m Turan. I am the CTO of OneDome, a London based property technology startup. Naive Bias is where I write about a range of topics covering engineering leadership, dealing with ambiguity, making trade-offs and more' },
+    { property: 'og:image', content: 'https://naivebias.com/img/twitter/tw-default.png' },
+    { property: 'og:image:alt', content: 'Naive Bias' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:site_name', content: 'Naive Bias' }
+])
+
+---
+<Page title="Naive Bias" meta={meta} canonical="https://naivebias.com">
+    <Home>
+        <section class="text-center my-6 px-3 dark:text-white">
+            <h1 class="text-3xl font-bold dark:text-white">
+                Hi there! I’m Turan
+            </h1>
+            <p class="text-lg mt-6 dark:text-white">
+                I am the CTO of <a href="https://onedome.com" target="_blank" class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200">OneDome</a>, a London based property technology startup
+            <br>
+                Previously I have worked at <a href="https://palantir.com" target="_blank" class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200">Palantir</a> and before that I studied AI in <a href="https://www.ed.ac.uk" target="_blank" class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200">Edinburgh</a>
+            </p>
+            <p class="text-lg mt-6 dark:text-white">
+                Naive Bias is where I write about a range of topics covering
+                engineering leadership,<br> dealing with ambiguity, making trade-offs and <a class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200" href="/all-posts">more</a>
+            </p>
+        </section>
+
+        <LatestPublications />
+
+    </Home>
+</Page>

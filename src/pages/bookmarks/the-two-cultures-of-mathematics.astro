@@ -1,0 +1,68 @@
+---
+import Page from '../../layouts/Page.astro'
+import Post from '../../shells/Post.astro'
+import LatestPublications from '../../components/LatestPublications.astro'
+import PanelQuestions from '../../components/PanelQuestions.astro'
+import PanelSubscribe from '../../components/PanelSubscribe.astro'
+
+import metaFormat from '../../_utils/meta-format'
+const meta = metaFormat.format([
+    { name: 'description', content: 'Hi there! I’m Turan. I am the CTO of OneDome, a London based property technology startup. Naive Bias is where I write about a range of topics covering engineering leadership, dealing with ambiguity, making trade-offs and more' },
+    { name: 'keywords', content: 'engineering leadership,engineering management,ambiguity,bias,technical leadership,CTO,London,product management,systems design,platforms,marketplaces,startups,remote work'},
+    { name: 'twitter:card', content: 'summary_large_image'},
+    { name: 'twitter:description', content: 'Hi there! I’m Turan. I am the CTO of OneDome, a London based property technology startup. Naive Bias is where I write about a range of topics covering engineering leadership, dealing with ambiguity, making trade-offs and more'},
+    { name: 'twitter:title', content: 'Naive Bias'},
+    { name: 'twitter:image', content: 'https://naivebias.com/img/twitter/tw-default.png'},
+    { name: 'twitter:site', content: '@nehfy'},
+
+    { property: 'og:url', content: 'https://naivebias.com' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: 'Naive Bias' },
+    { property: 'og:description', content: 'Hi there! I’m Turan. I am the CTO of OneDome, a London based property technology startup. Naive Bias is where I write about a range of topics covering engineering leadership, dealing with ambiguity, making trade-offs and more' },
+    { property: 'og:image', content: 'https://naivebias.com/img/twitter/tw-default.png' },
+    { property: 'og:image:alt', content: 'Naive Bias' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:site_name', content: 'Naive Bias' }
+])
+
+---
+<Page title="The Two Cultures of Mathematics" meta={meta} canonical="https://naivebias.com/bookmarks/the-two-cultures-of-mathematics">
+    <Post>
+        <main class="article-container">
+            <article>
+                <h1 class="article-title mx-auto pb-2 text-3xl font-bold text-center text-black dark:text-white">
+                    The Two Cultures of Mathematics
+                    <div class="text-sm text-gray-400 dark:text-gray-200">
+                    Bookmarked on 12/06/2021
+                    </div>
+                </h1>
+
+                <div class="article-content text-center prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                    <p>Author: <strong>W. T. Gowers</strong></p>
+                    <p>URL: <strong>https://www.dpmms.cam.ac.uk/~wtg10/2cultures.pdf</strong></p>
+                    <a href="https://www.dpmms.cam.ac.uk/~wtg10/2cultures.pdf" class="link-button">Open link</a>
+                </div>
+            </article>
+
+            <LatestPublications />
+        </main>
+    </Post>
+</Page>
+
+<style>
+.link-button {
+  background: #000;
+  color: #FFF !important;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-decoration: none !important;
+}
+
+.link-button:hover {
+  opacity: 0.8;
+}
+
+.link-button:active {
+  opacity: 0.5;
+}
+</style>

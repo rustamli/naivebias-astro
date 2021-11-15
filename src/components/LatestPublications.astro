@@ -1,0 +1,20 @@
+---
+import allPosts from '../_data/all'
+
+---
+<section class="w-80 md:w-96 text-left mx-auto my-8 px-3">
+    <div class="border-b-2 border-black border-solid mb-3 dark:border-white dark:text-white">
+    <span class="">Latest publications</span> 
+    </div>
+
+    { allPosts.posts.map((item) => {
+        return (<a class="group block my-3" href={`/posts/${item.id}`}>
+            <span class="block text-lg text-gray-400 dark:text-700">{item.postedOn}</span>
+            <span class="block text-xl font-bold text-black dark:text-white group-hover:text-gray-600 group-hover:dark:text-gray-300">{item.title}</span>
+        </a>)
+    })}
+    
+    <div class="mt-6">
+        <a href="/all-posts" class="underline text-gray-500 hover:text-gray-300">See all posts</a>
+    </div>
+</section>

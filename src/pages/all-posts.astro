@@ -1,0 +1,56 @@
+---
+import Page from '../layouts/Page.astro'
+import Post from '../shells/Post.astro'
+import LatestPublications from '../components/LatestPublications.astro'
+import BubblePost from '../components/BubblePost.astro'
+
+import allPosts from '../_data/all'
+
+import metaFormat from '../_utils/meta-format'
+const meta = metaFormat.format([
+    { name: 'description', content: 'Timeline of all posts on Naive Bias. Naive Bias is a blog about engineering leadership, dealing with ambiguity, making trade-offs and more'},
+    { name: 'twitter:card', content: 'summary_large_image'},
+    { name: 'twitter:description', content: 'Timeline of all posts on Naive Bias. Naive Bias is a blog about engineering leadership, dealing with ambiguity, making trade-offs and more'},
+    { name: 'twitter:title', content: 'All posts on Naive Bias'},
+    { name: 'twitter:image', content: 'https://naivebias.com/img/twitter/tw-all-posts.png'},
+    { name: 'twitter:site', content: '@nehfy'},
+    
+    { property: 'og:url', content: 'https://naivebias.com/all-posts' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: 'All posts on Naive Bias' },
+    { property: 'og:description', content: 'Timeline of all posts on Naive Bias. Naive Bias is a blog about engineering leadership, dealing with ambiguity, making trade-offs and more' },
+    { property: 'og:image', content: 'https://naivebias.com/img/twitter/tw-all-posts.png' },
+    { property: 'og:image:alt', content: 'Naive Bias' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:site_name', content: 'Naive Bias' }
+])
+
+---
+<Page title="All posts" meta={meta} canonical="https://naivebias.com/all-posts">
+    <Post>
+        <main class="article-container">
+            <article>
+                <h1 class="article-title mx-auto pb-2 text-3xl font-bold text-center text-black dark:text-white">
+                    All posts
+                </h1>
+
+                <div>
+                    {allPosts.posts.map((item) => {
+                        return (<BubblePost post={item} />);
+                    })}
+                </div>
+
+                <div class="mx-auto max-w-lg">
+                    <div class="info-panel mx-3 my-6 mb-6 py-3 px-6">
+                        <div>
+                        Do you want to know about new posts?
+                        </div>
+                        <a href="https://twitter.com/nehfy" target="_blank" class="hover:text-red-500">Follow me to receive updates</a><br>
+                    </div>      
+                </div>
+            </article>
+
+            <LatestPublications />
+        </main>
+    </Post>
+</Page>

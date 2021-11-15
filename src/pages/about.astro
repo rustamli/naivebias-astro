@@ -1,0 +1,67 @@
+---
+import Page from '../layouts/Page.astro'
+import Post from '../shells/Post.astro'
+import LatestPublications from '../components/LatestPublications.astro'
+
+import metaFormat from '../_utils/meta-format'
+const meta = metaFormat.format([
+    { name: 'description', content: 'Hi there! My name is Turan Rustamli. For the last two years I have been the CTO of OneDome. OneDome is a London based technology company with a mission to change the way people buy homes. So far this journey has taught me a decent amount of heuristics and an arsenal of analytical tools. Naive Bias is where I share my recent learnings'},
+    { name: 'twitter:card', content: 'summary_large_image'},
+    { name: 'twitter:description', content: 'Hi there! My name is Turan Rustamli. For the last two years I have been the CTO of OneDome. OneDome is a London based technology company with a mission to change the way people buy homes. So far this journey has taught me a decent amount of heuristics and an arsenal of analytical tools. Naive Bias is where I share my recent learnings'},
+    { name: 'twitter:title', content: 'About me and about Naive Bias'},
+    { name: 'twitter:image', content: 'https://naivebias.com/img/twitter/tw-about.png'},
+    { name: 'twitter:site', content: '@nehfy'},
+    
+    { property: 'og:url', content: 'https://naivebias.com/about' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: 'About me and about Naive Bias' },
+    { property: 'og:description', content: 'Hi there! My name is Turan Rustamli. For the last two years I have been the CTO of OneDome. OneDome is a London based technology company with a mission to change the way people buy homes. So far this journey has taught me a decent amount of heuristics and an arsenal of analytical tools. Naive Bias is where I share my recent learnings' },
+    { property: 'og:image', content: 'https://naivebias.com/img/twitter/tw-about.png' },
+    { property: 'og:image:alt', content: 'Naive Bias' },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:site_name', content: 'Naive Bias' }
+])
+
+---
+<Page title="About me and about Naive Bias" meta={meta} canonical="https://naivebias.com/about">
+    <Post>
+        <main class="article-container">
+            <article>
+                <h1 class="article-title mx-auto pb-2 text-3xl font-bold text-center text-black dark:text-white">
+                    About me
+                    <div class="text-sm text-gray-400 dark:text-gray-200">
+                    <a href="https://twitter.com/nehfy" target="_blank">Find me on Twitter</a>
+                    </div>
+                </h1>
+
+                <div class="text-center mt-6">
+                    <img class="m-auto w-36 h-36 rounded-full" src="https://pbs.twimg.com/profile_images/1285031744958279681/QnoXAJeb_400x400.jpg" alt="Photo of Turan">
+                </div>
+
+                <div class="article-content prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                    <p>
+                    Hi there! For the last two years I have been the CTO of <a href="https://onedome.com/about" target="_blank">OneDome</a>. OneDome is a London based technology company with a mission to change the way people buy homes. So far this journey has taught me a decent amount of heuristics and an arsenal of analytical tools. Most importantly, it has shaped a certain sense of measure, an intuition that makes you feel good when you think about the right choice and that causes a caution when you are about to slip up.
+                    </p>
+                    <p>
+                    Previously I have worked at <a href="https://palantir.com" target="_blank">Palantir</a>, where I contributed to several projects across the globe, interacting with world’s biggest commercial institutions. Before that I was the CTO and co-founder of a small proptech <a href="https://landmax.pro" target="_blank">startup</a>. Prior to that I obtained an MSc in AI from <a href="https://www.ed.ac.uk" target="_blank">The University of Edinburgh</a> and a BSc in Applied Mathematics from <a href="https://en.wikipedia.org/wiki/Baku_State_University" target="_blank">Baku State University</a>. 
+                    </p>
+                    <p>
+                    Naive Bias is where I share my learnings about engineering leadership, building platforms, managing remote teams, balancing engineering values, scaling marketplaces and more. As the name of this website suggests, you should expect my writing here to be subjective. Other than its literal meaning, "naive bias" is an allusion to <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier" target="_blank">my favourite probabilistic classifier</a>. I like it for its naiveness.
+                    </p>
+                    <p>
+                    You can also <a href="https://twitter.com/nehfy" target="_blank">follow me on Twitter</a>, where I post and retweet about broader topics including  the technologies that I work with, the products that I like using and the ideas that I find inspiring.
+                    </p>
+                    <p>
+                    If you need to get in touch with me, here's my email: <a href="mailto:turan@rustam.li">turan@rustam.li</a>
+                    </p>
+                    <p>
+                    All the best,<br>
+                    Turan
+                    </p>
+                </div>
+            </article>
+
+            <LatestPublications />
+        </main>
+    </Post>
+</Page>
