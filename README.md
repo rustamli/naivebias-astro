@@ -13,5 +13,3 @@ See LICENSE file for details
 ## Get in touch
 
 Get in touch with me [on Twitter](https://twitter.com/nehfy) if you have any questions
-
-🪶
