@@ -4,7 +4,7 @@ import Post from '../../shells/Post.astro'
 import LatestPublications from '../../components/LatestPublications.astro'
 import PanelQuestions from '../../components/PanelQuestions.astro'
 import PanelSubscribe from '../../components/PanelSubscribe.astro'
-
+import metaFormat from '../../_utils/meta-format'
 import allPosts from '../../_data/all'
 
 const {slug} = Astro.request.params;
@@ -19,7 +19,6 @@ export async function getStaticPaths() {
   });
 }
 
-import metaFormat from '../../_utils/meta-format'
 const meta = metaFormat.format([
     { name: 'description', content: post.description},
     { name: 'twitter:card', content: 'summary_large_image'},
@@ -39,7 +38,7 @@ const meta = metaFormat.format([
 ])
 
 ---
-<Page title="{post.title}" meta={meta} canonical="{ 'https://naivebias.com/posts/' + post.id }">
+<Page title={post.title} meta={ meta } canonical={ 'https://naivebias.com/posts/' + post.id }>
     <Post>
         <main class="article-container">
             <article>

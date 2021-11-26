@@ -1,6 +1,12 @@
 ---
-import '../styles/global.css';
+if (import.meta.hot) {
+  import.meta.hot.on('vite:beforeUpdate', () => {
+    alert('before update')
+  })
+}
+
 const {title, meta, canonical} = Astro.props;
+
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -17,48 +23,27 @@ const {title, meta, canonical} = Astro.props;
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="theme-color" content="#ffffff">
   
-  <meta content="{ meta.description }" name="description">
-	<meta content="{ meta.keywords }" name="keywords">
-	<meta content="{ meta['twitter:card'] }" name="twitter:card">
-	<meta content="{ meta['twitter:description'] }" name="twitter:description">
-	<meta content="{ meta['twitter:title'] }" name="twitter:title">
-	<meta content="{ meta['twitter:image'] }" name="twitter:image">
-	<meta content="{ meta['twitter:site'] }" name="twitter:site">
-	<meta content="{ meta['og:url'] }" property="og:url">
-	<meta content="{ meta['og:type'] }" property="og:type">
-	<meta content="{ meta['og:title'] }" property="og:title">
-	<meta content="{ meta['og:description'] }" property="og:description">
-	<meta content="{ meta['og:image'] }" property="og:image">
-	<meta content="{ meta['og:image:alt'] }" property="og:image:alt">
-	<meta content="{ meta['og:locale'] }" property="og:locale">
-	<meta content="{ meta['og:site_name'] }" property="og:site_name">
-	<link href="{ canonical }" rel="canonical">
+  <meta content={ meta.description } name="description">
+	<meta content={ meta.keywords } name="keywords">
+	<meta content={ meta['twitter:card'] } name="twitter:card">
+	<meta content={ meta['twitter:description'] } name="twitter:description">
+	<meta content={ meta['twitter:title'] } name="twitter:title">
+	<meta content={ meta['twitter:image'] } name="twitter:image">
+	<meta content={ meta['twitter:site'] } name="twitter:site">
+	<meta content={ meta['og:url'] } property="og:url">
+	<meta content={ meta['og:type'] } property="og:type">
+	<meta content={ meta['og:title'] } property="og:title">
+	<meta content={ meta['og:description'] } property="og:description">
+	<meta content={ meta['og:image'] } property="og:image">
+	<meta content={ meta['og:image:alt'] } property="og:image:alt">
+	<meta content={ meta['og:locale'] } property="og:locale">
+	<meta content={ meta['og:site_name'] } property="og:site_name">
+	<link href={ canonical } rel="canonical">
+
+  <link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")}>
 
   <script async src="https://cdn.splitbee.io/sb.js"></script>
-  <script>
-    const sendTelemetry = function (signalType) {
-        fetch('https://apptelemetry.io/api/v1/apps/F774EAA3-06EB-42F8-8BC5-39A7D05C0AB2/signals/', {
-            method: 'POST',
-            headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                    "clientUser": navigator.userAgent,
-                    "type": signalType,
-                    "payload": {
-                            "url": window.location.href,
-                            "useragent": navigator.userAgent,
-                            "language": navigator.language,
-                            "platform": navigator.platform,
-                            "vendor": navigator.vendor,
-                    }
-            })
-        });
-    }
-    
-    sendTelemetry("pageLoad")
-  </script>
+  
   <script src="https://cdn.jsdelivr.net/npm/turbolinks@5.2.0/dist/turbolinks.js"></script>
   <script>
       Turbolinks.setProgressBarDelay(2)

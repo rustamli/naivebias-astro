@@ -3,10 +3,9 @@ import Page from '../layouts/Page.astro'
 import Post from '../shells/Post.astro'
 import LatestPublications from '../components/LatestPublications.astro'
 import BubblePost from '../components/BubblePost.astro'
-
 import allPosts from '../_data/all'
-
 import metaFormat from '../_utils/meta-format'
+
 const meta = metaFormat.format([
     { name: 'description', content: 'Timeline of all posts on Naive Bias. Naive Bias is a blog about engineering leadership, dealing with ambiguity, making trade-offs and more'},
     { name: 'twitter:card', content: 'summary_large_image'},
@@ -43,9 +42,9 @@ const meta = metaFormat.format([
                 <div class="mx-auto max-w-lg">
                     <div class="info-panel mx-3 my-6 mb-6 py-3 px-6">
                         <div>
-                        Do you want to know about new posts?
+                        Do you want to subscribe to the new posts?
                         </div>
-                        <a href="https://twitter.com/nehfy" target="_blank" class="hover:text-red-500">Follow me to receive updates</a><br>
+                        <a href="https://twitter.com/nehfy" target="_blank" class="hover:text-red-500">Follow me for the updates</a><br>
                     </div>      
                 </div>
             </article>

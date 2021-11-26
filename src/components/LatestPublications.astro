@@ -10,7 +10,7 @@ import allPosts from '../_data/all'
     { allPosts.posts.map((item) => {
         return (<a class="group block my-3" href={`/posts/${item.id}`}>
             <span class="block text-lg text-gray-400 dark:text-700">{item.postedOn}</span>
-            <span class="block text-xl font-bold text-black dark:text-white group-hover:text-gray-600 group-hover:dark:text-gray-300">{item.title}</span>
+            <span class="block text-xl font-bold text-black dark:text-gray-300 group-hover:text-gray-600 dark:group-hover:text-white">{item.title}</span>
         </a>)
     })}
     
