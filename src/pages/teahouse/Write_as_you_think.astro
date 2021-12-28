@@ -1,0 +1,33 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Write as you think
+- Writing down your thoughts as they appear is a special mode of thinking and composing notes. Writing forces you to <a href="./Think_slowly" class="th-internal">Think slowly</a> and as a result forces you to think clearly and systemically.
+
+### Backlinks
+
+- <a href="./Avoid_copy-pasting_when_creating_new_notes" class="th-internal">Avoid copy-pasting when creating new notes</a>
+- <a href="./Think_slowly" class="th-internal">Think slowly</a>`
+    
+    ---
+    <Page title={ 'Write as you think' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

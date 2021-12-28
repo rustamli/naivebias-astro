@@ -1,0 +1,35 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Avoid using tags in any form
+- Using tags to categorise notes leads to hierarchical structure of your note-taking system. Even if you are using a graph based editor you end-up having bunch of "folders" with "files" in them. This significantly undermines extensibility and flexibility of the way you link related ideas together.
+- Instead of relying on tags, you should purely rely on backlinks. This way you are not only saying this two ideas are related but also describing how they are related. In a way this is similar to <a href="./Subject,_Object,_Predicate" class="th-internal">Subject, Object, Predicate</a> a concept studied and used in <a href="./Knowledge_Graphs" class="th-internal">Knowledge Graphs</a> and <a href="./Linguistics" class="th-internal">Linguistics</a>. Using backlinks in free text instead of tags helps to keep context of how exactly ideas in your notes are connected.
+- Anything that sounds like a tag, a category, a collection, an index and represents a different type of a note is making things worse. In the past I have made a mistake by avoiding "tags", but instead having other similar structural elements that made my note-taking and thinking limited and rigid.
+- <a href="./Search_within_your_note-taking_graph" class="th-internal">Search within your note-taking graph</a> is a more powerful way of finding related ideas than grouping them by categories.
+
+### Backlinks
+
+- <a href="./My_new_approach_for_note-taking" class="th-internal">My new approach for note-taking</a>`
+    
+    ---
+    <Page title={ 'Avoid using tags in any form' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

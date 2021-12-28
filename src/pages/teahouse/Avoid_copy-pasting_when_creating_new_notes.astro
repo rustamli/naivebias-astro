@@ -1,0 +1,33 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Avoid copy-pasting when creating new notes
+- It is important to avoid copy-pasting because that prevents you thinking through the idea that you are writing about. Also it is distracting you from the <a href="./Write_as_you_think" class="th-internal">Write as you think</a> flow.
+- Copy-pasting doesn't only refer to actual copy-pasting. Reading each sentence, paraphrasing and writing it down is still copy-pasting. Describing larger chunks of information in your own words works better as well as summarising ideas.
+
+### Backlinks
+
+- <a href="./My_new_approach_for_note-taking" class="th-internal">My new approach for note-taking</a>`
+    
+    ---
+    <Page title={ 'Avoid copy-pasting when creating new notes' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

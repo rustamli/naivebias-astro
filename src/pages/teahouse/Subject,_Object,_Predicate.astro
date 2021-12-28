@@ -1,0 +1,32 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Subject, Object, Predicate
+- Subject, Object, Predicate - is a grammar structure and information unit in <a href="./Knowledge_Graphs" class="th-internal">Knowledge Graphs</a> that encapsulates Subject (who?), Predicate (did what?), Object (to whom?)
+
+### Backlinks
+
+- <a href="./Avoid_using_tags_in_any_form" class="th-internal">Avoid using tags in any form</a>`
+    
+    ---
+    <Page title={ 'Subject, Object, Predicate' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

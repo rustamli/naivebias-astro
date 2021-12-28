@@ -1,0 +1,31 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Writing books the same way as building products
+- One way to approach <a href="./Writing_a_non-fiction_book" class="th-internal">Writing a non-fiction book</a> is applying techniques from product development. Ideas like <a href="./Minimum_Viable_Product_(MVP)" class="th-internal">Minimum Viable Product (MVP)</a>, testing what you want to write about by teaching about it, or writing a blog post about it and ultimately using the concept of <a href="./Beta-reading" class="th-internal">Beta-reading</a> in order to test your work in progress.
+- This approach is described in more details in a book called <a href="./Write_Useful_Books" class="th-internal">Write Useful Books</a> by <a href="./Rob_Fitzpatrick" class="th-internal">Rob Fitzpatrick</a> who is also the author of <a href="./The_Mom_Test" class="th-internal">The Mom Test</a> book.
+
+`
+    
+    ---
+    <Page title={ 'Writing books the same way as building products' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

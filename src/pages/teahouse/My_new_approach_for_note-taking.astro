@@ -1,0 +1,30 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# My new approach for note-taking
+- After reviewing my notes and discussing my approach to note-taking with OL, I decided to make a number of amendments going forward.
+- As of Dec 28th, 2021, I will follow Zettelkasten system more strictly. Namely, I will <a href="./Avoid_copy-pasting_when_creating_new_notes" class="th-internal">Avoid copy-pasting when creating new notes</a>, <a href="./Avoid_using_tags_in_any_form" class="th-internal">Avoid using tags in any form</a>, <a href="./Avoid_using_note-taking_for_collecting_interesting_ideas" class="th-internal">Avoid using note-taking for collecting interesting ideas</a>, <a href="./Use_clear_and_meaningful_titles_for_notes" class="th-internal">Use clear and meaningful titles for notes</a>.
+- Another takeaway is that reviewing your note-taking processes with friends is very beneficial. As I was describing my approach to OL, I have realised that I have been cheating and breaking my own rules in many cases without noticing it. Discussing it with a friend helps you to step aside and have a fresh view of your system.
+` 
+---
+    <Page title={ 'My new approach for note-taking' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

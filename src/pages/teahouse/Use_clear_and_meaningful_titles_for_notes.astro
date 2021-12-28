@@ -1,0 +1,33 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Use clear and meaningful titles for notes
+- It is important to name notes meaningfully. The title of a note should be indicative of its content. The title itself should be a valuable bit of information.
+- In past, I have made fancy titles like "the turtle theory" or "the secrets of 3 monks" - which make no sense without knowing the content of the note. Fancy titles are good if you are writing an article or a book, but in note-taking they can create unnecessary complication. Another issue with titles like that is that you are probably trying to collect a fancy metaphor or story from elsewhere. If this is the case you should <a href="./Avoid_using_note-taking_for_collecting_interesting_ideas" class="th-internal">Avoid using note-taking for collecting interesting ideas</a>.
+
+### Backlinks
+
+- <a href="./My_new_approach_for_note-taking" class="th-internal">My new approach for note-taking</a>`
+    
+    ---
+    <Page title={ 'Use clear and meaningful titles for notes' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

@@ -1,0 +1,35 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Avoid using note-taking for collecting interesting ideas
+- Note-taking shouldn't be about collecting ideas (mental models, tools, techniques, theories) anything that just seemed useful. It should be used to write down personal thoughts caused by these ideas.
+- For example, if you recently learned about some interesting technique, just writing it down will not help you. Unless you use it in practice and reflect on this experience you will forget about it.
+- If it feels like bookmarking, you are probably trying to collect things. Use a separate bookmarking system for that if you need. Remember, you are not trying to recreate your personal Wikipedia. This is not the goal of note-taking.
+
+### Backlinks
+
+- <a href="./My_new_approach_for_note-taking" class="th-internal">My new approach for note-taking</a>
+- <a href="./Use_clear_and_meaningful_titles_for_notes" class="th-internal">Use clear and meaningful titles for notes</a>`
+    
+    ---
+    <Page title={ 'Avoid using note-taking for collecting interesting ideas' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

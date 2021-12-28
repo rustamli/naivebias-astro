@@ -1,0 +1,32 @@
+---
+    import Page from '../../layouts/Page.astro'
+    import Post from '../../shells/Post.astro'
+    import LatestPublications from '../../components/LatestPublications.astro'
+    import PanelQuestions from '../../components/PanelQuestions.astro'
+    import PanelSubscribe from '../../components/PanelSubscribe.astro'
+    
+    import { Markdown } from 'astro/components';
+
+    const content = `# Think slowly
+- In certain cases slowing down your thinking process can give you as much value as speeding it up. One way of achieving this is <a href="./Write_as_you_think" class="th-internal">Write as you think</a>.
+
+### Backlinks
+
+- <a href="./Write_as_you_think" class="th-internal">Write as you think</a>`
+    
+    ---
+    <Page title={ 'Think slowly' } meta={ {} } canonical={ '' }>
+        <Post>
+    
+            <main class="article-container">
+                <article>
+                    <div class="article-content teahouse prose md:prose-lg lg:prose-xl dark:text-white mx-auto mt-8 px-5">
+                        <Markdown content={content} />
+                    </div>
+                </article>
+    
+                <LatestPublications />
+            </main>
+        </Post>
+    </Page>
+    

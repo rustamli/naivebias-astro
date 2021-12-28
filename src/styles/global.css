@@ -180,3 +180,21 @@ html.dark .separator {
     right: 16px;
     cursor: pointer;
 }
+
+.teahouse h1 {
+    text-align: center !important;
+    color: rgb(17, 161, 161);
+}
+
+.teahouse a.th-internal {
+    color: rgb(17, 161, 161);
+    background-color: rgb(223, 252, 244);
+    border-radius: 4px;
+    padding: 0 4px;
+    text-decoration: none;
+}
+
+.dark .teahouse a.th-internal {
+    color: rgb(53, 248, 248);
+    background-color: rgb(1, 34, 25);
+}
