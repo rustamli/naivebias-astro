@@ -18,6 +18,13 @@
         <div id="dropdown-backdrop" class="hidden inset-0 h-full w-full z-10"></div>
 
         <div id="dropdown-menu" class="hidden text-left right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+          <a href="javascript:void(0)" onclick="toggleSearchModal()" class="block px-4 py-2 text-sm  text-gray-700 hover:bg-red-500 hover:text-white">
+            Search <span id="header-menu-search-short-cut"></span>
+          </a>
+          <script>
+            document.getElementById('header-menu-search-short-cut').innerHTML = searchShortcut()
+          </script>
+
           <a href="/" class="block px-4 py-2 text-sm  text-gray-700 hover:bg-red-500 hover:text-white">
             Home
           </a>

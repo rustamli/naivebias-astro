@@ -50,9 +50,23 @@ const {title, meta, canonical} = Astro.props;
       Turbolinks.start()
   </script>
   
+  <script src="/js/search.js"></script>
+  <script>
+     initSearch();
+  </script>
 </head>
 <body>
   <slot />
+
+  <div class="search-backdrop">
+    <div class="search-modal">
+      <input type="text" class="search-input" placeholder="Type to search ...">
+      <img class="search-input-icon" src="/img/search-icon.svg" alt="search-icon">
+    </div>
+
+    <div class="search-results"></div>
+  </div>
+
   <script>
     (function() {
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches

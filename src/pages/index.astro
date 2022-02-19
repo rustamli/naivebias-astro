@@ -29,17 +29,23 @@ const meta = metaFormat.format([
     <Home>
         <section class="text-center my-6 px-3 dark:text-white">
             <h1 class="text-3xl font-bold dark:text-white">
-                Hi there! I’m Turan
+                Hi there! I’m <a href="/about" class="hover:text-gray-500">Turan</a>
             </h1>
+            
             <p class="text-lg mt-6 dark:text-white">
-                I am the CTO of <a href="https://onedome.com" target="_blank" class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200">OneDome</a>, a London based property technology startup
-            <br>
-                Previously I have worked at <a href="https://palantir.com" target="_blank" class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200">Palantir</a> and before that I studied AI in <a href="https://www.ed.ac.uk" target="_blank" class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200">Edinburgh</a>
+                Naive Bias is where I write about 
+                engineering leadership,<br class="hidden md:inline"> product design, dealing with complexity and <a class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200" href="/all-posts">more</a>
             </p>
-            <p class="text-lg mt-6 dark:text-white">
-                Naive Bias is where I write about a range of topics covering
-                engineering leadership,<br> dealing with ambiguity, making trade-offs and <a class="underline hover:text-gray-500 dark:text-white dark:hover:text-gray-200" href="/all-posts">more</a>
-            </p>
+        </section>
+
+        <section class="w-80 md:w-[600px] text-left mx-auto my-8 px-3">
+            <div class="home-search-bar">
+                <span id="home-search-bar-input-label" class="home-search-bar-input-label">Search</span>
+                <img class="home-search-bar-input-icon" src="/img/search-icon.svg" alt="search-icon">
+            </div>
+            <script>
+                document.getElementById('home-search-bar-input-label').innerHTML = 'Search ' + (searchShortcut() || '...');
+            </script>
         </section>
 
         <LatestPublications />
