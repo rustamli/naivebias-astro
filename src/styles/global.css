@@ -17,6 +17,7 @@ html {
 
 html.dark {
   background: #222;
+  color-scheme: dark;
 }
 
 #nprogress {
