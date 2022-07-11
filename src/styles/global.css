@@ -65,6 +65,7 @@ html {
 
 html.dark .air-button, html.dark #scroll-top-button {
     filter: invert(1);
+    color: #000 !important;
 }
 
 .top-nav-menu {
